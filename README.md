@@ -27,5 +27,5 @@ Tambahan tentang git commit yang bagus - [How to write git commit message](https
 
 ## Pipeline & Coverage
 
-* [![pipeline status](https://gitlab.com/ppw-c-4/linked-out/badges/master/pipeline.svg)](https://gitlab.com/ppw-c-4/linked-out/commits/master)
-* [![coverage report](https://gitlab.com/ppw-c-4/linked-out/badges/master/coverage.svg)](https://gitlab.com/ppw-c-4/linked-out/commits/master)
+[![pipeline status](https://gitlab.com/ppw-c-4/linked-out/badges/master/pipeline.svg)](https://gitlab.com/ppw-c-4/linked-out/commits/master)
+[![coverage report](https://gitlab.com/ppw-c-4/linked-out/badges/master/coverage.svg)](https://gitlab.com/ppw-c-4/linked-out/commits/master)
