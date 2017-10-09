@@ -1,0 +1,42 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<h1>Profile</h1>
+<hr/>
+
+<section name="name">
+    <p align = "center">
+         <img src={{model_pic}} class="img-circle" widht="200" height="200">
+    </p>  
+    <p align = "center">
+        <h2 align="center">{{name}}</h2>
+
+    </p>  
+</section>
+<hr/>
+<section name="about_me">
+    <table class="table" align="center">
+        <tr>
+            <td>Birthday</td>
+            <td>{{birthdate}}</td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>{{gender}}</td>
+        </tr>
+        <tr>
+            <td>Expertise</td>
+            <td>    
+                {{expertise.expertise}}
+            </td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>{{description}}</td>
+        </tr>
+    </table>
+</section>
+<hr/>
+
+
+{% endblock %}
