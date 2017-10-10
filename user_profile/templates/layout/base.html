@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="LAB 4">
+    <meta name="author" content="{{author}}">
+    <!-- bootstrap csss -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+
+
+  
+
+    <title> 
+        {% block title %}{% endblock %}
+    </title>
+</head>
+
+<body style="background-image: url(https://wallpapercave.com/wp/PLfMD50.jpg)">
+    <header>
+        
+    </header>
+    <content>
+        <div class="container col-md-12">
+            
+        </div>
+        <div class="container">
+            {% block content %}
+                <!-- content goes here -->
+            {% endblock %}
+        </div>
+
+    </content>
+    <footer>
+
+    </footer>
+
+    <!-- Jquery n Bootstrap Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="application/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
