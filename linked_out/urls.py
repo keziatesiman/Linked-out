@@ -16,17 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 import user_profile.urls as user_profile
-<<<<<<< HEAD
 import dashboard.urls as dashboard
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user_profile/', include(user_profile, namespace="user_profile")),
-    url(r'^dashboard/', include(dashboard, namespace="dashboard"))
-=======
-
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^user_profile/', include(user_profile,namespace='user_profile')),
->>>>>>> 6f5b4453e0ae0bd96d23dc6b6291d89dd7456fb5
+    url(r'^dashboard/', include(dashboard, namespace="dashboard")),
 ]
