@@ -19,7 +19,7 @@ def index(request):
     response['name'] = Person.objects.all()[0].name
     response['birthdate'] = Person.objects.all()[0].birthdate
     response['gender'] = Person.objects.all()[0].gender
-    response['expertise'] = Expertise.objects.all()[0]
+    response['expertise'] = Expertise.objects.all()
     response['description'] = Person.objects.all()[0].description
     response['email'] = Person.objects.all()[0].email
     response['model_pic'] = PhotoURL.objects.all()[0].model_pic

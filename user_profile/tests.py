@@ -10,7 +10,9 @@ class user_profileUnitTest(TestCase):
 
     def test_user_profile_url_is_exist(self):
         person = Person.objects.create(name="Johann Sebastian Bach", birthdate="1685-03-31", gender="Male", description="Master of contrapuntal composition and professional harpsichord player", email="jsbach@gmail.com")
-        expertise = Expertise.objects.create(expertise ="Contrapuntal composition, Church leading musician, Glorifying God")
+        expertise = Expertise.objects.create(expertise ="Contrapuntal composition")
+        expertise = Expertise.objects.create(expertise ="Church leading musician")
+        expertise = Expertise.objects.create(expertise ="Glorifying God")
         model_pic = expertise = PhotoURL.objects.create(model_pic ="http://www.bachsociety.org/wp-content/uploads/2017/01/Johann-sunglasses.jpg")
 
         response = Client().get('/user_profile/')
@@ -18,8 +20,11 @@ class user_profileUnitTest(TestCase):
 
     def test_user_profile_using_index_func(self):
         person = Person.objects.create(name="Johann Sebastian Bach", birthdate="1685-03-31", gender="Male", description="Master of contrapuntal composition and professional harpsichord player", email="jsbach@gmail.com")
-        expertise = Expertise.objects.create(expertise ="Contrapuntal composition, Church leading musician, Glorifying God")
+        expertise = Expertise.objects.create(expertise ="Contrapuntal composition")
+        expertise = Expertise.objects.create(expertise ="Church leading musician")
+        expertise = Expertise.objects.create(expertise ="Glorifying God")
         model_pic = expertise = PhotoURL.objects.create(model_pic ="http://www.bachsociety.org/wp-content/uploads/2017/01/Johann-sunglasses.jpg")
+
         found = resolve('/user_profile/')
         self.assertEqual(found.func, index)
 
@@ -28,8 +33,11 @@ class user_profileUnitTest(TestCase):
         request = HttpRequest()
 
         person = Person.objects.create(name="Johann Sebastian Bach", birthdate="1685-03-31", gender="Male", description="Master of contrapuntal composition and professional harpsichord player", email="jsbach@gmail.com")
-        expertise = Expertise.objects.create(expertise ="Contrapuntal composition, Church leading musician, Glorifying God")
+        expertise = Expertise.objects.create(expertise ="Contrapuntal composition")
+        expertise = Expertise.objects.create(expertise ="Church leading musician")
+        expertise = Expertise.objects.create(expertise ="Glorifying God")
         model_pic = expertise = PhotoURL.objects.create(model_pic ="http://www.bachsociety.org/wp-content/uploads/2017/01/Johann-sunglasses.jpg")
+
         
         response = Client().get('/user_profile/')
         html_response = response.content.decode('utf8')
@@ -40,6 +48,8 @@ class user_profileUnitTest(TestCase):
         self.assertIn("March 31, 1685", html_response)
         self.assertIn(Person.objects.all()[0].gender, html_response)
         self.assertIn(Expertise.objects.all()[0].expertise, html_response)
+        self.assertIn(Expertise.objects.all()[1].expertise, html_response)
+        self.assertIn(Expertise.objects.all()[2].expertise, html_response)
         self.assertIn(Person.objects.all()[0].description, html_response)
         self.assertIn(PhotoURL.objects.all()[0].model_pic, html_response)
 

@@ -1,5 +1,8 @@
 {% extends "layout/base.html" %}
 
+{% block title %}
+User Profile by Kezia Irene
+{% endblock %}
 {% block content %}
 <h1>Profile</h1>
 <hr/>
@@ -26,8 +29,11 @@
         </tr>
         <tr>
             <td>Expertise</td>
-            <td>    
-                {{expertise.expertise}}
+            <td>
+                <span class="badge badge-pill badge-primary">Primary</span>
+                {% for data in expertise %}        
+                    <span class="badge badge-pill badge-info">{{data.expertise}}</span>
+                {% endfor %}
             </td>
         </tr>
         <tr>
