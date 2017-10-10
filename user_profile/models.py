@@ -5,6 +5,8 @@ DATE_INPUT_FORMATS = ('%d-%m-%Y')
 
 
 # Create your models here.
+
+
 class Person(models.Model):
     name = models.CharField(max_length=30)
     birthdate = models.DateField(default=date.today)

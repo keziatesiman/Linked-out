@@ -12,6 +12,9 @@ def index(request):
     html = 'user_profile.html'
     person = Person.objects.all()
 
+    print("-------------------------------")
+    print(Person.objects.all().count())
+
     response = {} #TODO Implement yourname
     response['name'] = Person.objects.all()[0].name
     response['birthdate'] = Person.objects.all()[0].birthdate
