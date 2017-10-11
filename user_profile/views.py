@@ -7,7 +7,6 @@ from .models import Person, Expertise, PhotoURL
 
 def index(request):
     html = 'user_profile.html'
-    person = Person.objects.all()
 
     person = Person.objects.create(name="Johann Sebastian Bach", birthdate="1685-03-31", gender="Male", description="Master of contrapuntal composition and professional harpsichord player", email="jsbach@gmail.com")
     expertise = Expertise.objects.create(expertise ="Contrapuntal composition")

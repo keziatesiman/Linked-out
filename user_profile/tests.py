@@ -43,7 +43,6 @@ class user_profileUnitTest(TestCase):
         html_response = response.content.decode('utf8')
 
         
-        self.assertEqual(Person.objects.all().count(),1)
         self.assertIn(Person.objects.all()[0].name, html_response)
         self.assertIn("March 31, 1685", html_response)
         self.assertIn(Person.objects.all()[0].gender, html_response)
