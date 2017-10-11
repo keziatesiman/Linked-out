@@ -1,0 +1,33 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<section name='add-input' id='add-input'>
+	<h4>Add Friend</h4>
+	<form id='form' method="POST" action="{% url 'friend:add_friend' %}">
+		{% csrf_token %}
+        {{ add_form }}
+        <br>
+	    <button id="submit" type="submit" class="btn pull-right btn-primary">Add Friend</button>
+	</form>
+</section>
+<section name='friend-list' id='friend-list'>
+	<h4>List Friend</h4>
+	<table class='table table-responsive table-hover'>
+		<tbody>
+			{% if friend %}
+				{% for i in friend %}
+				<tr>
+					<td> {{ i.name }} </td>
+					<td></td>
+					<td> <a href="{{ i.url }}">{{ i.url }}</a> </td>
+					<td> Added 	{{ i.created_date }} </td>
+				</tr>
+				{% endfor %}
+			{% else %}
+			<div class="alert alert-danger text-center">
+                <strong>Oops!</strong> You don't have any friend :(.
+            </div>
+            {% endif %}
+		</tbody>
+	</table>
+</section>
+{% endblock %}
