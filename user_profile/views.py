@@ -3,15 +3,17 @@ from .models import Person, Expertise, PhotoURL
 
 # Create your views here.
 
-person = Person.objects.create(name="Johann Sebastian Bach", birthdate="1685-03-31", gender="Male", description="Master of contrapuntal composition and professional harpsichord player", email="jsbach@gmail.com")
-expertise = Expertise.objects.create(expertise ="Contrapuntal composition")
-expertise = Expertise.objects.create(expertise ="Church leading musician")
-expertise = Expertise.objects.create(expertise ="Glorifying God")
-model_pic = expertise = PhotoURL.objects.create(model_pic ="http://www.bachsociety.org/wp-content/uploads/2017/01/Johann-sunglasses.jpg")
+
 
 def index(request):
     html = 'user_profile.html'
     person = Person.objects.all()
+
+    person = Person.objects.create(name="Johann Sebastian Bach", birthdate="1685-03-31", gender="Male", description="Master of contrapuntal composition and professional harpsichord player", email="jsbach@gmail.com")
+    expertise = Expertise.objects.create(expertise ="Contrapuntal composition")
+    expertise = Expertise.objects.create(expertise ="Church leading musician")
+    expertise = Expertise.objects.create(expertise ="Glorifying God")
+    model_pic = expertise = PhotoURL.objects.create(model_pic ="http://www.bachsociety.org/wp-content/uploads/2017/01/Johann-sunglasses.jpg")
 
     response = {} #TODO Implement yourname
     response['author']= "Kezia Irene"
