@@ -23,7 +23,7 @@ Tambahan tentang git commit yang bagus - [How to write git commit message](https
 * **Rayza Arasj Mahardhika** - 1606876052 - [rayzaarasj](https://gitlab.com/rayzaarasj)
 * **Kezia Irene** - 1606825676 - [keziatesiman](https://gitlab.com/keziatesiman)
 * **Muhammad Azmie Alaudin** - 1606875945 - [azmie.alaudin](https://gitlab.com/azmie.alaudin)
-* **Hadlina rahmadinni** - 160691856 - [hadlinar](https://gitlab.com/hadlinar)
+* **Hadlina Rahmadinni** - 160691856 - [hadlinar](https://gitlab.com/hadlinar)
 
 ## Pipeline & Coverage
 

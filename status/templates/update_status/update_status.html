@@ -1,0 +1,46 @@
+{% extends "update_status/layout/base.html" %}
+
+{% block content %}
+<h1 class="main-title">Update Status</h1>
+<hr/>
+<section name="input-list" id="input-list">
+    <div class="container">
+        <form id="form" method="POST" action="{% url 'status:add_status' %}">
+            <h2>Input Todo</h2>
+            {% csrf_token %}
+            {{ update_form }}
+            <input id="submit" type="submit" class="btn btn-lg btn-block btn-info" value="Submit">
+            <br>
+        </form>
+    </div>
+</section>
+<section name="my-status" id="my-status">
+    <div class="container">
+        <!-- <h2 class="my-list-title">My List</h2> -->
+        <div class="flex">
+            {% if update_bar %}
+                {% for data in update_bar %}
+                    <div class="flex-item">
+                        <div class="status">
+                            <div class="status-date-added">
+                                {{data.created_date}}
+                            </div>
+                            <div class="status-description">
+                                {{data.update}}
+                            </div>
+                            <!-- <div class="to-do-list-delete">
+                                <div class="to-do-list-delete-button" data-id="{{data.id}}">Delete</div>
+                            </div> -->
+                        </div>
+                    </div>
+                {% endfor %}
+            <!-- {% else %}
+            <div class="alert alert-danger text-center">
+                <strong>Oops!</strong> Tidak ada data Todo.
+            </div>
+            {% endif %} -->
+        </div>
+    </div>
+</section>
+
+{% endblock %}
