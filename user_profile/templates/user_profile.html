@@ -1,10 +1,19 @@
 {% extends "layout/base.html" %}
+{% load staticfiles %}
 
+{% block style %}
+<!-- bootstrap csss -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile.css' %}" />
+{% endblock %}
 {% block title %}
 User Profile by Kezia Irene
 {% endblock %}
 {% block content %}
+<div class="Profile">
 <h1>Profile</h1>
+</div>
 <hr/>
 
 <section name="name">
@@ -12,8 +21,9 @@ User Profile by Kezia Irene
          <img src={{model_pic}} class="rounded-circle" widht="200" height="200">
     </p>  
     <p align = "center">
+        <div class = "name"> 
         <h2 align="center">{{name}}</h2>
-
+        </div>
     </p>  
 </section>
 <hr/>
