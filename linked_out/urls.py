@@ -16,12 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 import user_profile.urls as user_profile
-import dashboard.urls as dashboard
 import status.urls as status
+import friend.urls as friend
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user_profile/', include(user_profile, namespace="user_profile")),
-    url(r'^dashboard/', include(dashboard, namespace="dashboard")),
-    url(r'^status/', include(status, namespace="status")),
+    url(r'^friend/', include(friend, namespace="friend")),
 ]

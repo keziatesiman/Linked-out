@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class FriendConfig(AppConfig):
-    name = 'friend'
+class AddFriendConfig(AppConfig):
+    name = 'add_friend'
