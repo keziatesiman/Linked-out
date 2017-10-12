@@ -8,12 +8,12 @@ class Add_Form(forms.Form):
     name_attrs = {
         'type':'text',
     	'class':'form-control',
-        'placeholder': 'Azmie'
+        'placeholder': 'Enter your name'
     }
     url_attrs = {
         'type':'url',
     	'class':'form-control',
-        'placeholder': 'https://google.com'
+        'placeholder': 'Enter your website (with http://)'
     }
 
     name = forms.CharField(label='Name', required=True, widget=forms.TextInput(attrs=name_attrs))
