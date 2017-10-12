@@ -2,7 +2,8 @@
 {% load staticfiles %}
 
 {% block style %}
-<!-- bootstrap csss -->
+
+    <!-- bootstrap csss -->
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile.css' %}" />
 {% endblock %}
@@ -19,11 +20,12 @@ User Profile by Kezia Irene
     <p align = "center">
          <img src={{model_pic}} class="img-circle" widht="200" height="200">
     </p>  
+
     <p align = "center">
-        <div class = "name"> 
+        <div class = "name">
         <h2 align="center">{{name}}</h2>
         </div>
-    </p>  
+    </p>
 </section>
 <hr/>
 <section name="about_me">
@@ -50,7 +52,6 @@ User Profile by Kezia Irene
         </tr>
     </table>
 </section>
-<hr/>
 
 
 {% endblock %}
