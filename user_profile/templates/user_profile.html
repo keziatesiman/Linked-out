@@ -2,8 +2,7 @@
 {% load staticfiles %}
 
 {% block style %}
-<!-- bootstrap csss -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- bootstrap csss -->
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/user_profile.css' %}" />
 {% endblock %}
@@ -19,12 +18,12 @@ User Profile by Kezia Irene
 <section name="name">
     <p align = "center">
          <img src={{model_pic}} class="rounded-circle" widht="200" height="200">
-    </p>  
+    </p>
     <p align = "center">
-        <div class = "name"> 
+        <div class = "name">
         <h2 align="center">{{name}}</h2>
         </div>
-    </p>  
+    </p>
 </section>
 <hr/>
 <section name="about_me">
@@ -40,7 +39,7 @@ User Profile by Kezia Irene
         <tr>
             <td>Expertise</td>
             <td>
-                {% for data in expertise %}        
+                {% for data in expertise %}
                     <span class="badge badge-pill badge-primary">{{data.expertise}}</span>
                 {% endfor %}
             </td>
@@ -51,7 +50,6 @@ User Profile by Kezia Irene
         </tr>
     </table>
 </section>
-<hr/>
 
 
 {% endblock %}
