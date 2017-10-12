@@ -10,5 +10,30 @@ response = {}
 
 
 def index(request):
+    html = "dashboard/dashboard.html"
+
+    personName = Person.objects.all()[0].name
+    personPic = PhotoURL.objects.all()[0].model_pic
+    statusCount = Update_Form.objects.all().count()
+    statusMsg = statusMsg = "Post" if statusCount <= 1 else "Posts"
+    friendCount = Friend.objects.all().count()
+    friendMsg = "Person" if friendCount <= 1 else "People"
+    if (statusCount > 0):
+        lastStatus = Update_Form.objects.all()[statusCount - 1]
+        lastDesc = lastStatus.description
+        lastDate = lastStatus.created_date
+    else:
+        lastDesc = "Tidak ada Status"
+        lastDate = None
+
     response["author"] = "Rayza"
-    return render(request, 'dashboard/dashboard.html', response)
+    response["personName"] = personName
+    response["personPic"] = personPic
+    response["statusCount"] = statusCount
+    response["statusMsg"] = statusMsg
+    response["friendCount"] = friendCount
+    response["friendMsg"] = friendMsg
+    response["lastDesc"] = lastDesc
+    response["lastDate"] = lastDate
+
+    return render(request, html, response)
