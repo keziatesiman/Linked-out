@@ -1,4 +1,4 @@
-{% extends "/base.html" %}
+{% extends "layout/base.html" %}
 {% load staticfiles %}
 
 {% block style %}
@@ -19,7 +19,7 @@ User Profile by Kezia Irene
 <section name="name">
     <p align = "center">
          <img src={{model_pic}} class="img-circle" widht="200" height="200">
-    </p>  
+    </p>
 
     <p align = "center">
         <div class = "name">
@@ -41,7 +41,7 @@ User Profile by Kezia Irene
         <tr>
             <td>Expertise</td>
             <td>
-                {% for data in expertise %}        
+                {% for data in expertise %}
                     <span class="badge badge-pill badge-primary" id="bege">{{data.expertise}}</span>
                 {% endfor %}
             </td>

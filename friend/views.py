@@ -24,3 +24,11 @@ def add_friend(request):
 		return HttpResponseRedirect('/friend/')
 	else:
 		return HttpResponseRedirect('/friend/')
+
+def url_is_valid(url):
+    try:
+        thepage = urlopen(url)
+    except URLError as e:
+        return False
+    else:
+        return True
