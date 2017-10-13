@@ -1,0 +1,23 @@
+body{
+  margin-top: 70px;
+  background-image: url("https://wallpapercave.com/wp/PLfMD50.jpg");
+  background-color: #cccccc;
+}
+.navbar{
+  margin: 0;
+  padding: 0;
+}
+.profile{
+  font-size: 20px;
+}
+.name{
+  font-size: 24px;
+}
+
+.table{
+  font-size: 15px;
+}
+
+#bege{
+  background-color: #2079A1; 
+}
