@@ -1,12 +1,17 @@
 {% extends "layout/base.html" %}
 {% block content %}
+<title>
+		{% block title %}
+			Add Friend by {{author}}
+		{% endblock %}
+</title>
 <section name='add-input' id='add-input'>
-	<h4>Add Friend</h4>
+	<h1 class="main-title">Add Friend</h1>
 	<form id='form' method="POST" action="{% url 'friend:add_friend' %}">
 		{% csrf_token %}
         {{ add_form }}
         <br>
-	    <button id="submit" type="submit" class="btn pull-right btn-primary">Add Friend</button>
+	    <button id="submit" type="submit" class="btn pull-right btn-primary" style="border-radius:50px">Add Friend</button>
 	</form>
 </section>
 <section name='friend-list' id='friend-list'>
@@ -16,6 +21,8 @@
 			{% if friend %}
 				{% for i in friend %}
 				<tr>
+					<td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+						style="width:40px;height:40px;border-radius:40px"></td>
 					<td> {{ i.name }} </td>
 					<td></td>
 					<td> <a href="{{ i.url }}">{{ i.url }}</a> </td>
@@ -24,7 +31,7 @@
 				{% endfor %}
 			{% else %}
 			<div class="alert alert-danger text-center">
-                <strong>Oops!</strong> You don't have any friend :(.
+                <strong>Oops!</strong> You don't have any friend :(
             </div>
             {% endif %}
 		</tbody>

@@ -63,19 +63,26 @@ class DashboardUnitTest(TestCase):
         self.assertIn(personName, html_response)
         self.assertIn(photo, html_response)
 
-    def test_last_status_exits(self):
+    def test_last_status_exists(self):
         self.make_person()
         statusCount = Update_Form.objects.all().count()
-        if (statusCount > 0):
-            lastStatus = Update_Form.objects.all()[statusCount - 1]
-            lastDesc = lastStatus.description
-            lastDate = lastStatus.created_date
-        else:
-            lastDesc = "Tidak ada Status"
-            lastDate = ""
+        if (statusCount <= 0):
+            Update_Form.objects.create(description = "This is last")
+            statusCount += 1
+
+        lastStatus = Update_Form.objects.all()[statusCount - 1]
+        lastDesc = lastStatus.description
 
         response = Client().get('/dashboard/')
         html_response = response.content.decode('utf8')
 
         self.assertIn(lastDesc, html_response)
-        self.assertIn(lastDate, html_response)
+
+    def test_last_status_not_exists(self):
+        self.make_person()
+        statusCount = Update_Form.objects.all().count()
+
+        response = Client().get('/dashboard/')
+        html_response = response.content.decode('utf8')
+
+        self.assertIn("No Status", html_response)

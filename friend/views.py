@@ -11,6 +11,7 @@ def index(request):
 	response['friend'] = friend
 	html = 'add_friend.html'
 	response['add_form'] = Add_Form
+	response["author"] = "Azmie"
 	return render(request, html, response)
 
 def add_friend(request):
