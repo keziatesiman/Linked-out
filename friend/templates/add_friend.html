@@ -1,16 +1,15 @@
 {% extends "layout/base.html" %}
+{% block title %}
+Add Friend by {{author}}
+{% endblock %}
 {% block content %}
-<title>
-		{% block title %}
-			Add Friend by {{author}}
-		{% endblock %}
-</title>
 <style>
 .alert-dismissable {
 	width: 25%;
 	font-size: 85%;
 }
 </style>
+<div style="padding-left:55px;padding-right:55px"
 <section name='add-input' id='add-input'>
 	<h1 class="main-title">Add Friend</h1>
 	<form id='form' method="POST" action="{% url 'friend:add_friend' %}">
@@ -49,4 +48,5 @@
 		</tbody>
 	</table>
 </section>
+</div>
 {% endblock %}
