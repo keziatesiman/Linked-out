@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import resolve
 from .views import index
-from status.models import Update_Form
+from status.models import Status
 from friend.models import Friend
 from user_profile.models import Person, PhotoURL
 
@@ -34,7 +34,7 @@ class DashboardUnitTest(TestCase):
     def test_status_count_is_correct(self):
         self.make_person()
 
-        statusCount = Update_Form.objects.all().count()
+        statusCount = Status.objects.all().count()
         statusMsg = "Post" if statusCount <= 1 else "Posts"
 
         response = Client().get('/dashboard/')
@@ -65,12 +65,12 @@ class DashboardUnitTest(TestCase):
 
     def test_last_status_exists(self):
         self.make_person()
-        statusCount = Update_Form.objects.all().count()
+        statusCount = Status.objects.all().count()
         if (statusCount <= 0):
-            Update_Form.objects.create(description = "This is last")
+            Status.objects.create(description = "This is last")
             statusCount += 1
 
-        lastStatus = Update_Form.objects.all()[statusCount - 1]
+        lastStatus = Status.objects.all()[statusCount - 1]
         lastDesc = lastStatus.description
 
         response = Client().get('/dashboard/')
@@ -80,7 +80,7 @@ class DashboardUnitTest(TestCase):
 
     def test_last_status_not_exists(self):
         self.make_person()
-        statusCount = Update_Form.objects.all().count()
+        statusCount = Status.objects.all().count()
 
         response = Client().get('/dashboard/')
         html_response = response.content.decode('utf8')

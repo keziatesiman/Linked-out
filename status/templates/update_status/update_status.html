@@ -1,40 +1,27 @@
 {% extends "layout/base.html" %}
-<<<<<<< HEAD
 
-=======
->>>>>>> 1ab8e03b173af524d5aef2d27a47f80d9a6e6b6c
 {% block content %}
-
-{% load staticfiles %}
-{% load static %}
-
-<link rel="stylesheet" type="text/css" href="css/update_status.css">
-<section name="input-list" id="input-list">
-    <div class="container">
+<div class="container">
+    <section name="input-list" id="input-list">
         <form id="form" method="POST" action="{% url 'status:add_status' %}">
             <h2>Update Status</h2>
             {% csrf_token %}
-            {{ update_form }}
-<<<<<<< HEAD
-            <input id="submit" type="submit" class="btn btn-primary" value="Submit" style="border-radius:50px; width: 100px;">
-=======
-            <input id="submit" type="submit" class="btn btn-lg btn-block btn-info" value="Submit" style="border-radius:50px">
->>>>>>> 1ab8e03b173af524d5aef2d27a47f80d9a6e6b6c
+            {{ status_form }}
+            <input id="submit" type="submit" class="btn btn-lg btn-block" value="Post">
             <br>
         </form>
-    </div>
-</section>
-<section name="my-status" id="my-status">
-    <div class="container">
-        <!-- <h2 class="my-list-title"></h2> -->
+    </section>
+    <section name="my-list" id="my-list">
+        <h2 class="title">Your Status</h2>
         <div class="flex">
-            {% if update_bar %}
-                {% for data in update_bar %}
+            {% if database %}
+                {% for data in database %}
                     <div class="flex-item">
-                        <div class="status">
+                        <div class="status-list">
                             <div class="status-profile">
                                 <div class="status-profile-left">
-                                    <a href="{% url 'status:add_status' %}">
+                                    <a href="{% url 'user_profile:index' %}">
+                                    <img src="https://c1.staticflickr.com/5/4481/37272585896_fb26d30fe6_b.jpg" width="50px" height="50px" alt="my-photo"></a>
                                 </div>
                                 <div class="status-profile-right">
                                     {{profile_name}}
@@ -46,22 +33,32 @@
                             <div class="status-date-added">
                                 {{data.created_date}}
                             </div>
-                            <div class="status-update">
+                            <div class="to-do-list-description">
                                 {{data.description}}
                             </div>
-                            <!-- <div class="to-do-list-delete">
+                            <div class="to-do-list-delete">
                                 <div class="to-do-list-delete-button" data-id="{{data.id}}">Delete</div>
-                            </div> -->
-                        </div>
+                            </div>
+                        </div>       
                     </div>
                 {% endfor %}
-            <!-- {% else %}
+            {% else %}
             <div class="alert alert-danger text-center">
-                <strong>Oops!</strong> Tidak ada data Todo.
+                <strong>Oops!</strong> Tidak ada data Status.
             </div>
-            {% endif %} -->
+            {% endif %}
         </div>
-    </div>
-</section>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="application/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="application/javascript">
+    $(function() {
+        $('.to-do-list-delete-button').click(function() {
+            var id = $(this).data('id')
+            location.href = "/status/delete/" + id + "/"
+        });
+    });
+</script>
+</div>
 
-{% endblock %}
+{% endblock %}  

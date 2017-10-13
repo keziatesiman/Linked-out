@@ -1,5 +1,10 @@
 from django.db import models
 
-class Update_Form(models.Model):
-    description = models.TextField()
+# Create your models here.
+class Status(models.Model):
+    status = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+    	ordering = ('status', 'created_date')
+
