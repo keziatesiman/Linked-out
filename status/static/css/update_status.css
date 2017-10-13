@@ -112,13 +112,6 @@ footer p{
   padding: 10px 10px;
 }
 
-.status-list .status-profile .status-profile-left {
-  width: 50px;
-  float: left;
-}
-.status-list .status-profile .status-profile-right {
-  margin: 10px;
-}
 
 .status-list .status-message {
   padding: 10px 25px;
@@ -150,3 +143,7 @@ footer p{
 .expertise-block{
   border-radius:50%;
 }
+
+/*.to-do-list-delete .to-do-list-delete-button {
+  border
+}*/
