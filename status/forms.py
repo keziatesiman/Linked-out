@@ -13,3 +13,4 @@ class Status_Form(forms.Form):
     }
 
     status = forms.CharField(label='', required=True, widget=forms.Textarea(attrs=status_attrs))
+
