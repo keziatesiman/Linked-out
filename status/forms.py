@@ -1,14 +1,15 @@
 from django import forms
 
-class Update_Bar(forms.Form):
+class Status_Form(forms.Form):
     error_messages = {
-        'required': 'Isi duls',
+        'required': 'Tolong isi input ini',
     }
-    update_attrs = {
+    status_attrs = {
         'type': 'text',
-        'cols': 50,
-        'rows': 2,
-        'class': 'update-textarea',
-        'placeholder': 'sup?'
+        'cols': 150,
+        'rows': 4,
+        'class': 'status-form-textarea',
+        'placeholder': "What's happening?"
     }
-    description = forms.CharField(label='', required=True, widget=forms.Textarea(attrs=update_attrs))
+
+    status = forms.CharField(label='', required=True, widget=forms.Textarea(attrs=status_attrs))

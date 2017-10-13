@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from status.models import Update_Form
+from status.models import Status
 from friend.models import Friend
 from user_profile.models import Person, PhotoURL
 # TODO import status.models
@@ -14,12 +14,12 @@ def index(request):
 
     personName = Person.objects.all()[0].name
     personPic = PhotoURL.objects.all()[0].model_pic
-    statusCount = Update_Form.objects.all().count()
+    statusCount = Status.objects.all().count()
     statusMsg = statusMsg = "Post" if statusCount <= 1 else "Posts"
     friendCount = Friend.objects.all().count()
     friendMsg = "Person" if friendCount <= 1 else "People"
     if (statusCount > 0):
-        lastStatus = Update_Form.objects.all()[statusCount - 1]
+        lastStatus = Status.objects.all()[statusCount - 1]
         lastDesc = lastStatus.description
         lastDate = lastStatus.created_date
     else:
