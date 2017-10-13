@@ -6,8 +6,8 @@ class Update_Bar(forms.Form):
     }
     update_attrs = {
         'type': 'text',
-        'cols': 50,
-        'rows': 2,
+        'cols': 150,
+        'rows': 4,
         'class': 'update-textarea',
         'placeholder': 'sup?'
     }

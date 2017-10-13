@@ -1,6 +1,7 @@
-body{
+/*body{
   margin-top: 50px;
-}
+  background-color: pink;
+}*/
 
 /* navbar style */
 .navbar-static-top{
@@ -27,50 +28,59 @@ section{
 
 /* styling wrapper form */
 #input-list{
-  background: lightgrey;
-}
+  background: linear-gradient(to bottom right, #606062, #393939);
+  width: 90px;
+  height: 50px;
 
+}
+/* styling form */
 #input-list form{
-  width: 800px;
-  margin: 50px auto;
-  text-align: center;
+  width:20px;
+  margin: 10px auto;
+  text-align: left;
   position: relative;
   z-index: 1;
   background: black;
   border: 0 none;
-  border-radius: 5px;
-  box-shadow: 0 0 15px 1px rgba(0,0,0,0.4);
+  border-radius: 3px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
   padding: 20px 30px;
   box-sizing: border-box;
   position: relative;
+  width: 100px;
+  height: 50px;
+  
 }
-
+/* styling judul form, apakah arti dari tanda '>' ? */
 #input-list form > h2{
   font-size: 1.3em;
   text-transform: uppercase;
-  color: yellow;
+  color: #2C3E50;
   margin-bottom: 10px;
 }
 
+/* styling form input dan text area*/
 #input-list form > .status-bar-input, #input-list form > .status-bar-textarea{
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 3px;
   margin-bottom: 10px;
-  width: 100%;
+  /*width: 100%;*/
   box-sizing: border-box;
   color: yellow;
+  font-size: 13px;
+
+
 }
 
 @media only screen and (max-width: 768px){
   #input-list form {
-      width: 80
-      0px;
+      width: 290px;
   }
 }
 
 #my-status{
-  background: lightgrey;
+  background: pink;
 }
 
 .status{
@@ -144,5 +154,29 @@ section{
   background: pink;
   height: 125px;
   text-align: left;
+  overflow: auto;
+}
+
+.status .status-profile{
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 10px;
+}
+
+.status .status-profile-left{
+  width: 50px;
+  float: left;
+}
+
+.status .status-profile-right{
+  margin: 10px;
+}
+
+.status .status-message{
+  padding: 10px 25px;
+  z-index: 15;
+  background: #fff;
+  height: 125px;
+  text-align: justify;
   overflow: auto;
 }

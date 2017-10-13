@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from .views import index, add_status
+from .views import index, add_status, delete_status
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
     url(r'^add_status', add_status, name = 'add_status'),
+    url(r'^delete/(?P<pk>\d+)/$', delete_status, name='delete_status')
 ]

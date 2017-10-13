@@ -6,6 +6,7 @@ from .models import Update_Form
 from .forms import Update_Bar
 
 class StatusPageUnitTest(TestCase):
+
     def test_status_page_url_is_exist(self):
         response = Client().get('/status/')
         self.assertEqual(response.status_code, 200)
@@ -22,6 +23,11 @@ class StatusPageUnitTest(TestCase):
         counting_all_status = Update_Form.objects.all().count()
         self.assertEqual(counting_all_status, 1)
 
+    def test_form_status_input_has_placeholder_and_css_classes(self):
+        status = Update_Bar()
+        self.assertIn('class="status-bar-textarea', form.as_p())
+        self.assertIn('id="id_description', form.as_p())
+
     def test_form_validation_for_blank_items(self):
         form = Update_Bar(data={'description': ''})
         self.assertFalse(form.is_valid())
@@ -37,7 +43,7 @@ class StatusPageUnitTest(TestCase):
 
         response = Client().get('/status/')
         html_response = response.content.decode('utf8')
-        self.assertNotIn(test, html_response)
+        self.assertIn(test, html_response)
 
     def test_statuspage_post_error_and_render_the_result(self):
         test = 'Anonymous'
@@ -47,3 +53,11 @@ class StatusPageUnitTest(TestCase):
         response= Client().get('/status/')
         html_response = response.content.decode('utf8')
         self.assertNotIn(test, html_response)
+
+    def test_status_delete(self):
+        status = Update_Form.objects.create(
+            status='description'
+        )
+        response_post = Client().get('/status/delete_status/{}/'.format(status.id))
+        self.assertEqual(response_post.status_code, 302)
+        self.assertEqual(Update_Form.objects.count(), 0)

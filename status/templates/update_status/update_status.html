@@ -1,32 +1,46 @@
-{% extends "update_status/layout/base.html" %}
+{% extends "layout/base.html" %}
 
 {% block content %}
-<h1 class="main-title">Update Status</h1>
-<hr/>
+
+{% load staticfiles %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="css/update_status.css">
 <section name="input-list" id="input-list">
     <div class="container">
         <form id="form" method="POST" action="{% url 'status:add_status' %}">
-            <h2>Input Todo</h2>
+            <h2>Update Status</h2>
             {% csrf_token %}
             {{ update_form }}
-            <input id="submit" type="submit" class="btn btn-lg btn-block btn-info" value="Submit">
+            <input id="submit" type="submit" class="btn btn-primary" value="Submit" style="border-radius:50px; width: 100px;">
             <br>
         </form>
     </div>
 </section>
 <section name="my-status" id="my-status">
     <div class="container">
-        <!-- <h2 class="my-list-title">My List</h2> -->
+        <!-- <h2 class="my-list-title"></h2> -->
         <div class="flex">
             {% if update_bar %}
                 {% for data in update_bar %}
                     <div class="flex-item">
                         <div class="status">
+                            <div class="status-profile">
+                                <div class="status-profile-left">
+                                    <a href="{% url 'status:add_status' %}">
+                                </div>
+                                <div class="status-profile-right">
+                                    {{profile_name}}
+                                </div>
+                            </div>
+                            <div class="status-message">
+                                {{data.status}}
+                            </div>
                             <div class="status-date-added">
                                 {{data.created_date}}
                             </div>
-                            <div class="status-description">
-                                {{data.update}}
+                            <div class="status-update">
+                                {{data.description}}
                             </div>
                             <!-- <div class="to-do-list-delete">
                                 <div class="to-do-list-delete-button" data-id="{{data.id}}">Delete</div>
