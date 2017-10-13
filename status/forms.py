@@ -9,7 +9,7 @@ class Status_Form(forms.Form):
         'cols': 150,
         'rows': 4,
         'class': 'status-form-textarea',
-        'placeholder':'Apa yang sedang kamu pikirkan?'
+        'placeholder': "What's happening?"
     }
 
     status = forms.CharField(label='', required=True, widget=forms.Textarea(attrs=status_attrs))

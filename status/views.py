@@ -3,7 +3,6 @@ from django.http import HttpResponseRedirect
 from .forms import Status_Form
 from .models import Status
 
-expertise=['Web Development','Java Language','Gaming']
 description='this is test'
 name='Hadlina Rahmadinni'
 gender='female'
