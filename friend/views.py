@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import Add_Form
 from .models import Friend
+from urllib.request import urlopen
+from urllib.error import URLError
 
 # Create your views here.
 response = {}
