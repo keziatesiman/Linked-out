@@ -20,7 +20,7 @@ def index(request):
     friendMsg = "Person" if friendCount <= 1 else "People"
     if (statusCount > 0):
         lastStatus = Status.objects.all()[statusCount - 1]
-        lastDesc = lastStatus.description
+        lastDesc = lastStatus.status
         lastDate = lastStatus.created_date
     else:
         lastDesc = "Tidak ada Status"
