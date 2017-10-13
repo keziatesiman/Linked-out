@@ -7,7 +7,7 @@
             <h2>Update Status</h2>
             {% csrf_token %}
             {{ status_form }}
-            <input id="submit" type="submit" class="btn btn-lg btn-block" value="Post">
+            <input id="submit" type="submit" class="btn btn-lg btn-block" value="Post" style="width: 75px;">
             <br>
         </form>
     </section>
@@ -27,7 +27,7 @@
                                     {{profile_name}}
                                 </div>
                             </div>
-                            <div class="status-message">
+                            <div class="description">
                                 {{data.status}}
                             </div>
                             <div class="status-date-added">
