@@ -67,11 +67,11 @@ class DashboardUnitTest(TestCase):
         self.make_person()
         statusCount = Status.objects.all().count()
         if (statusCount <= 0):
-            Status.objects.create(description = "This is last")
+            Status.objects.create(status = "This is last")
             statusCount += 1
 
         lastStatus = Status.objects.all()[statusCount - 1]
-        lastDesc = lastStatus.description
+        lastDesc = lastStatus.status
 
         response = Client().get('/dashboard/')
         html_response = response.content.decode('utf8')
