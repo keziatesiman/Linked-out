@@ -5,6 +5,12 @@
 			Add Friend by {{author}}
 		{% endblock %}
 </title>
+<style>
+.alert-dismissable {
+	width: 25%;
+	font-size: 85%;
+}
+</style>
 <section name='add-input' id='add-input'>
 	<h1 class="main-title">Add Friend</h1>
 	<form id='form' method="POST" action="{% url 'friend:add_friend' %}">
@@ -13,6 +19,12 @@
         <br>
 	    <button id="submit" type="submit" class="btn pull-right btn-primary" style="border-radius:50px">Add Friend</button>
 	</form>
+	{% if not valid and not first %}
+	<div class="alert alert-danger alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close" >&times;</a>
+		<strong>Sorry!</strong> You've added an invalid friend.
+	</div>
+{% endif %}
 </section>
 <section name='friend-list' id='friend-list'>
 	<h4>List Friend</h4>
@@ -21,7 +33,7 @@
 			{% if friend %}
 				{% for i in friend %}
 				<tr>
-					<td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+					<td><img src="https://usercontent2.hubstatic.com/5209067_f520.jpg"
 						style="width:40px;height:40px;border-radius:40px"></td>
 					<td> {{ i.name }} </td>
 					<td></td>
