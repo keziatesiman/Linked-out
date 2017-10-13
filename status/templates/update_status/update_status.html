@@ -1,6 +1,9 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
+<title>
+    {% block title %} Status By {{author}}{% endblock %}
+</title>
 <div class="container">
     <section name="input-list" id="input-list">
         <form id="form" method="POST" action="{% url 'status:add_status' %}">

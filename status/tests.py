@@ -19,7 +19,7 @@ class UpdateStatusUnitTest(TestCase):
 
     def test_model_can_create_new_status(self):
         # Creating a new activity
-        new_activity = Status.objects.create(status='mengerjakan lab_5 ppw')
+        new_activity = Status.objects.create(status='Hi yall')
 
         # Retrieving all available activity
         counting_all_available_status = Status.objects.all().count()
