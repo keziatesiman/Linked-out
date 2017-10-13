@@ -3,10 +3,10 @@ from django.http import HttpResponseRedirect
 from .forms import Status_Form
 from .models import Status
 
-description='this is test'
-name='Hadlina Rahmadinni'
-gender='female'
-email='hadlinar@gmail.com'
+description='tMaster of contrapuntal composition and professional harpsichord player'
+name='Johann Sebastian Bach'
+gender='Male'
+email='jsbach@gmail.com'
 author='Hadlina Rahmadinni'
 
 

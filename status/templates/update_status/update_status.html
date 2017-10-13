@@ -6,11 +6,11 @@
 </title>
 <div class="container">
     <section name="input-list" id="input-list">
-        <form id="form" method="POST" action="{% url 'status:add_status' %}">
+        <form style="font-size: 20px;" id="form" method="POST" action="{% url 'status:add_status' %}">
             <h2>Update Status</h2>
             {% csrf_token %}
             {{ status_form }}
-            <input id="submit" type="submit" class="btn btn-lg btn-block" value="Post" style="width: 75px; background-color: lightblue">
+            <input id="submit" type="submit" class="btn btn-lg btn-block" value="Post" style="width: 75px; background-color: lightblue; border-radius: 55px">
             <br>
         </form>
     </section>
@@ -24,7 +24,7 @@
                             <div class="status-profile">
                                 <div>
                                     <a href="{% url 'user_profile:index' %}">
-                                    <p style="font-size: 25px; color: black"><img src="https://vignette4.wikia.nocookie.net/spongebob/images/8/8f/Patrick-Man%21_10.png/revision/latest?cb=20121118005257" style="border-radius: 15%; width: 80px; height: 75px; margin: 10px;">{{profile_name}}</p>
+                                    <p style="font-size: 25px; color: black"><img src="http://www.bachsociety.org/wp-content/uploads/2017/01/Johann-sunglasses.jpg" style="border-radius: 15%; width: 80px; height: 75px; margin: 10px;">{{profile_name}}</p>
                                 </a>
                                 </div>
                             </div>
@@ -33,19 +33,20 @@
                             </div>
                             <div class="status-date-added">
                                 {{data.created_date}}
+                                <br><br>
                             </div>
                             <div class="to-do-list-description">
                                 {{data.description}}
                             </div>
                             <div class="to-do-list-delete">
-                                <div class="to-do-list-delete-button" data-id="{{data.id}}" style="width: 60px; background-color: red; font-size: 20px; position: center">Delete</div>
+                                <div class="to-do-list-delete-button" data-id="{{data.id}}" style="width: 60px; background-color: red; font-size: 20px; position: center; border-radius: 5px;">Delete</div>
                             </div>
                         </div>       
                     </div>
                 {% endfor %}
             {% else %}
             <div class="alert alert-danger text-center">
-                <strong>Oops!</strong> Tidak ada data Status.
+                <strong>Oops!</strong> There isn't status yet.
             </div>
             {% endif %}
         </div>
